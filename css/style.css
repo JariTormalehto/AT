@@ -7,17 +7,22 @@ body, html {
 	width: 100% !important;
 	height: 100% !important;
 }
+h1 {
+	color: #007e58;
+	text-shadow: 2px 2px 8px #000000;
+}
 h2 {
 	margin: 0 0 20px 0;
 	font-weight: 500;
 	font-size: 34px;
 	color: #333;
 	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
 }
 h3 {
 	font-size: 22px;
 	font-weight: 500;
-	color: #333;
+	color: #007e58;
 }
 h4 {
 	font-size: 24px;
@@ -32,6 +37,7 @@ h5 {
 }
 p {
 	font-size: 17px;
+	font-family: 'Arial', sans-serif;
 }
 p.intro {
 	margin: 12px 0 0;
@@ -173,6 +179,11 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	background-size: cover;
 	-o-background-size: cover;
 }
+.mySlideshow {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 .intro .overlay {
 	background: rgba(0,0,0,0.40);
 }
@@ -215,8 +226,7 @@ header .intro-text {
 }
 #about img {
 	display: inline-block;
-	border-radius: 100px 0 100px 0;
-	box-shadow: -15px 0 #a7c44c;
+
 }
 #about p {
 	line-height: 24px;
@@ -231,8 +241,7 @@ header .intro-text {
 }
 #services img {
 	width: 300px;
-	border-radius: 75px 0 75px 0;
-	box-shadow: 15px 0 #a7c44c;
+
 }
 #services h3 {
 	padding: 10px 0;
