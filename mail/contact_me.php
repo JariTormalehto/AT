@@ -17,8 +17,7 @@ $telefon = $_POST['telefon'];
 	
 // Create the email and send the message
 $recipients = array{
-"taritvo@taritvo.ee",
-"reili@taritvo.ee",
+"meiltest@taritvo.ee",
 "jari@taritvo.ee"};
 
 $to = implode(',' $recipients); // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.

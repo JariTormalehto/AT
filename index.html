@@ -47,9 +47,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about" class="page-scroll">Ajalugu</a></li>
         <li><a href="#services" class="page-scroll">Tootmine</a></li>
-        <li><a href="#portfolio" class="page-scroll">Traktorid ja haagised</a></li>
-        <li><a href="#team" class="page-scroll">Metsatehnika</a></li>
-        <li><a href="#contact" class="page-scroll">Contact</a></li>
+        <li><a href="#portfolio" class="page-scroll">Traktorid, haagised ja metsatehnika</a></li>
+        <li><a href="#contact" class="page-scroll">Kontakt</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -109,27 +108,99 @@
       <hr>
       <p>Aastast 2016 osaleb AS TARITVO aktiivselt tütarettevõtte PREAB AS kaudu puitdekoratiivtoodete tootmises ja tootearenduses edasi. Rohkem informatsiooni tütarettevõtte PREAB AS kohta leiate koduleheküljelt <a href="http://www.preab.ee">www.preab.ee</a></a></p>
     </div>
-    <div class="mySlideshow" style="max-width:500px;" >
-      <img class="mySlides" src="img/pildid/kombinatsioon1.png" style="width:100%">
-      <img class="mySlides" src="img/pildid/heleriiul.png" style="width:100%">
-      <img class="mySlides" src="img/pildid/tumeriiul.png" style="width:100%">
-      <img class="mySlides" src="img/pildid/helesiin.png" style="width:100%">
-      
+    <!-- Container for the image gallery -->
+    <div class="container">
+
+      <!-- Full-width images with number text -->
+      <div class="mySlides">
+        <div class="numbertext">1 / 6</div>
+        <img src="img\pildid\tumeriiul.png" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
+        <img src="img\pildid\heleriiul.png" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">3 / 6</div>
+        <img src="img\pildid\helesiin.png" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">4 / 6</div>
+        <img src="img\pildid\kombinatsioon1.png" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">5 / 6</div>
+        <img src="img\pildid\tumeraam.png" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">6 / 6</div>
+        <img src="img\pildid\heleraam.png" style="width:100%">
+      </div>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <!-- Image text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <!-- Thumbnail images -->
+      <div class="row">
+        <div class="column">
+          <img class="demo cursor" src="img\pildid\tumeriiul.png" style="width:100%" onclick="currentSlide(1)" alt="Tume riiul">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img\pildid\heleriiul.png" style="width:100%" onclick="currentSlide(2)" alt="Hele riiul">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img\pildid\helesiin.png" style="width:100%" onclick="currentSlide(3)" alt="Hele siin">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img\pildid\kombinatsioon1.png" style="width:100%" onclick="currentSlide(4)" alt="Kombinatsioon">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img\pildid\tumeraam.png" style="width:100%" onclick="currentSlide(5)" alt="Tume raam">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="img\pildid\heleraam.png" style="width:100%" onclick="currentSlide(6)" alt="Hele raam">
+        </div>
+      </div>
     </div>
     <script>
-      var myIndex = 0;
-      carousel();
+      var slideIndex = 1;
+      showSlides(slideIndex);
 
-      function carousel() {
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
         var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
         }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}
-        x[myIndex-1].style.display = "block";
-        setTimeout(carousel, 2000); // Change image every 2 seconds
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
       }
     </script>
   </div>
@@ -138,18 +209,19 @@
 <div id="portfolio">
   <div class="container">
     <div class="section-title text-center center">
-      <h2>Projects</h2>
+      <h2>Traktorid ja haagised</h2>
       <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
+      <p>Alates 2011 aastast on AS TARITVO teinud koostööd ERT (www.ert.ee) ja Konesa OY-ga (<a href="http://www.konesa.fi"a>www.konesa.fi</a>), osaledes aktiivselt tootearenduses ja müügitegevuses, pakkudes erinevaid põllumajanduslikke haagiseid ja rehve.</p>
     </div>
     <div class="categories">
       <ul class="cat">
         <li>
           <ol class="type">
-            <li><a href="#" data-filter="*" class="active">All Projects</a></li>
-            <li><a href="#" data-filter=".residential">Residential</a></li>
-            <li><a href="#" data-filter=".office">Office</a></li>
-            <li><a href="#" data-filter=".commercial">Commercial</a></li>
+            <li><a href="#" data-filter="*" class="active">Kõik projektid</a></li>
+            <li><a href="#" data-filter=".ert">ERT</a></li>
+            <li><a href="#" data-filter=".valtra">Valtra</a></li>
+            <li><a href="#" data-filter=".muud">Muud</a></li>
+            <li><a href="#" data-filter=".oniar">Oniar</a></li>
           </ol>
         </li>
       </ul>
@@ -157,164 +229,147 @@
     </div>
     <div class="row">
       <div class="portfolio-items">
-        <div class="col-sm-6 col-md-4 col-lg-4 residential">
+        <div class="col-sm-6 col-md-4 col-lg-4 ert">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/ert1.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>ERT Haagis</h4>
               </div>
-              <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/ert1.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 commercial">
+        <div class="col-sm-6 col-md-4 col-lg-4 oniar">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/oniar1.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Oniar</h4>
               </div>
-              <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/oniar1.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 residential">
+        <div class="col-sm-6 col-md-4 col-lg-4 oniar">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/oniar2.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Oniar</h4>
               </div>
-              <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/oniar2.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 residential">
+        <div class="col-sm-6 col-md-4 col-lg-4 oniar">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/04-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/oniar3.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Oniar</h4>
               </div>
-              <img src="img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/oniar3.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 commercial">
+
+        <div class="col-sm-6 col-md-4 col-lg-4 muud">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/muu1.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Muud</h4>
               </div>
-              <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/muu1.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 office">
+        <div class="col-sm-6 col-md-4 col-lg-4 ert">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/ert2.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>ERT Haagis</h4>
               </div>
-              <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/ert2.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 office">
+        <div class="col-sm-6 col-md-4 col-lg-4 ert">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/ert3.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>ERT Haagis</h4>
               </div>
-              <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/ert3.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 residential">
+        <div class="col-sm-6 col-md-4 col-lg-4 muud">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/muu2.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Muud</h4>
               </div>
-              <img src="img/portfolio/08-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/muu2.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 commercial">
+        <div class="col-sm-6 col-md-4 col-lg-4 valtra">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/valtra1.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Valtra</h4>
               </div>
-              <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/valtra1.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 office">
+        <div class="col-sm-6 col-md-4 col-lg-4 valtra">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/10-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/valtra2.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Valtra</h4>
               </div>
-              <img src="img/portfolio/10-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/valtra2.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 office">
+        <div class="col-sm-6 col-md-4 col-lg-4 ert">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/11-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/ert4.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>ERT Haagis</h4>
               </div>
-              <img src="img/portfolio/11-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/ert4.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-4 residential">
+        <div class="col-sm-6 col-md-4 col-lg-4 muud">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/12-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
+            <div class="hover-bg"> <a href="img/pildid/muu3.png" title="" data-lightbox-gallery="gallery1">
               <div class="hover-text">
-                <h4>Project Name</h4>
+                <h4>Muud</h4>
               </div>
-              <img src="img/portfolio/12-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/pildid/muu3.png" class="img-responsive" alt=""> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4 valtra">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/pildid/valtra3.png" title="" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Valtra</h4>
+              </div>
+              <img src="img/pildid/valtra3.png" class="img-responsive" alt=""> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4 valtra">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/pildid/valtra4.png" title="" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Valtra</h4>
+              </div>
+              <img src="img/pildid/valtra4.png" class="img-responsive" alt=""> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4 ert">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/pildid/ert5.png" title="" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>ERT Haagis</h4>
+              </div>
+              <img src="img/pildid/ert5.png" class="img-responsive" alt=""> </a> </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Team Section -->
-<div id="team" class="text-center">
-  <div class="overlay">
-    <div class="container">
-      <div class="col-md-8 col-md-offset-2 section-title">
-        <h2>Meet the Team</h2>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
-      </div>
-      <div id="row">
-        <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <img src="img/team/01.jpg" alt="..." class="team-img">
-            <div class="caption">
-              <h3>John Doe</h3>
-              <p>Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <img src="img/team/02.jpg" alt="..." class="img-circle team-img">
-            <div class="caption">
-              <h3>Mike Doe</h3>
-              <p>Senior Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-            <div class="caption">
-              <h3>Jane Doe</h3>
-              <p>Senior Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-            <div class="caption">
-              <h3>Karen Doe</h3>
-              <p>Project Manager</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 <!-- Contact Section -->
 <div id="contact">
   <div class="container">
@@ -324,18 +379,18 @@
     </div>
     <div class="col-md-4">
       <h3>Üldkontakt</h3>
+      <div class="contact-item"> <span>Tel:</span>
+        <p> +372 442 9230</p>
+      </div>
+      <div class="contact-item"> <span>Email</span>
+        <p>taritvo@taritvo.ee</p>
+      </div>
       <div class="contact-item"> <span>Aadress</span>
         <p>Tankla tee 10,<br>
           Saarde küla, Saarde vald, <br>
           Pärnumaa <br>
           86213 <br>
           Eesti</p>
-      </div>
-      <div class="contact-item"> <span>Email</span>
-        <p>taritvo@taritvo.ee</p>
-      </div>
-      <div class="contact-item"> <span>Tel:</span>
-        <p> +372 442 9230</p>
       </div>
     </div>
     <div class="col-md-8">
